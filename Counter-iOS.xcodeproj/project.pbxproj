@@ -15,7 +15,10 @@
 		3A084BB81BEBFE7200BF244C /* Counter_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A084BB71BEBFE7200BF244C /* Counter_iOSTests.swift */; };
 		3A26AAD61BEC040200281C54 /* ModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26AAD51BEC040200281C54 /* ModelHandler.swift */; };
 		3A26AAD81BEC043400281C54 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26AAD71BEC043400281C54 /* Model.swift */; };
+		3A26AADA1BEC0D9D00281C54 /* ModelSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26AAD91BEC0D9D00281C54 /* ModelSerialization.swift */; };
+		3A26AADC1BEC140500281C54 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26AADB1BEC140500281C54 /* SerializationTests.swift */; };
 		3AE3F7C11BEC01A7000BE6DC /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3F7C01BEC01A7000BE6DC /* UserViewCell.swift */; };
+		90C22C6426C8B26010809873 /* Pods_Counter_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A4E50EE6857D542351EF77 /* Pods_Counter_iOSTests.framework */; };
 		E4786EBBFB2F34553C71D494 /* Pods_Counter_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D5670F27F5B5831C68FA0A /* Pods_Counter_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F02558276A4551C1EAD19FA /* Pods-Counter-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Counter-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Counter-iOSTests/Pods-Counter-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		18D5670F27F5B5831C68FA0A /* Pods_Counter_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Counter_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A084B9F1BEBFE7100BF244C /* Counter-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Counter-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A084BA21BEBFE7100BF244C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,8 +47,12 @@
 		3A084BB91BEBFE7200BF244C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A26AAD51BEC040200281C54 /* ModelHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelHandler.swift; sourceTree = "<group>"; };
 		3A26AAD71BEC043400281C54 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3A26AAD91BEC0D9D00281C54 /* ModelSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSerialization.swift; sourceTree = "<group>"; };
+		3A26AADB1BEC140500281C54 /* SerializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
 		3AE3F7C01BEC01A7000BE6DC /* UserViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		4A5B4AD5D433C8C31779D7B4 /* Pods-Counter-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Counter-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Counter-iOS/Pods-Counter-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		73A4E50EE6857D542351EF77 /* Pods_Counter_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Counter_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93F24F4E27C102F7D3BFF90A /* Pods-Counter-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Counter-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Counter-iOSTests/Pods-Counter-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		BD227F47D7D6009B845A5F3A /* Pods-Counter-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Counter-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Counter-iOS/Pods-Counter-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C22C6426C8B26010809873 /* Pods_Counter_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +81,8 @@
 			children = (
 				4A5B4AD5D433C8C31779D7B4 /* Pods-Counter-iOS.debug.xcconfig */,
 				BD227F47D7D6009B845A5F3A /* Pods-Counter-iOS.release.xcconfig */,
+				0F02558276A4551C1EAD19FA /* Pods-Counter-iOSTests.debug.xcconfig */,
+				93F24F4E27C102F7D3BFF90A /* Pods-Counter-iOSTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -80,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				18D5670F27F5B5831C68FA0A /* Pods_Counter_iOS.framework */,
+				73A4E50EE6857D542351EF77 /* Pods_Counter_iOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,11 +123,12 @@
 				3A084BA41BEBFE7100BF244C /* ViewController.swift */,
 				3AE3F7C01BEC01A7000BE6DC /* UserViewCell.swift */,
 				3A26AAD51BEC040200281C54 /* ModelHandler.swift */,
+				3A26AAD71BEC043400281C54 /* Model.swift */,
+				3A26AAD91BEC0D9D00281C54 /* ModelSerialization.swift */,
 				3A084BA61BEBFE7100BF244C /* Main.storyboard */,
 				3A084BA91BEBFE7100BF244C /* Assets.xcassets */,
 				3A084BAB1BEBFE7100BF244C /* LaunchScreen.storyboard */,
 				3A084BAE1BEBFE7100BF244C /* Info.plist */,
-				3A26AAD71BEC043400281C54 /* Model.swift */,
 			);
 			path = "Counter-iOS";
 			sourceTree = "<group>";
@@ -125,6 +138,7 @@
 			children = (
 				3A084BB71BEBFE7200BF244C /* Counter_iOSTests.swift */,
 				3A084BB91BEBFE7200BF244C /* Info.plist */,
+				3A26AADB1BEC140500281C54 /* SerializationTests.swift */,
 			);
 			path = "Counter-iOSTests";
 			sourceTree = "<group>";
@@ -156,9 +170,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A084BBF1BEBFE7200BF244C /* Build configuration list for PBXNativeTarget "Counter-iOSTests" */;
 			buildPhases = (
+				0142C7372FE2385758984055 /* Check Pods Manifest.lock */,
 				3A084BAF1BEBFE7200BF244C /* Sources */,
 				3A084BB01BEBFE7200BF244C /* Frameworks */,
 				3A084BB11BEBFE7200BF244C /* Resources */,
+				B6F16DD4B2E8A5FC2DAA6AE0 /* Embed Pods Frameworks */,
+				E2E6138AEEA2050D9603F046 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,6 +246,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0142C7372FE2385758984055 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		2347D85C022CCB2B4AF98D5C /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +306,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Counter-iOS/Pods-Counter-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B6F16DD4B2E8A5FC2DAA6AE0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Counter-iOSTests/Pods-Counter-iOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2E6138AEEA2050D9603F046 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Counter-iOSTests/Pods-Counter-iOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -285,6 +347,7 @@
 				3A26AAD61BEC040200281C54 /* ModelHandler.swift in Sources */,
 				3A084BA51BEBFE7100BF244C /* ViewController.swift in Sources */,
 				3A084BA31BEBFE7100BF244C /* AppDelegate.swift in Sources */,
+				3A26AADA1BEC0D9D00281C54 /* ModelSerialization.swift in Sources */,
 				3AE3F7C11BEC01A7000BE6DC /* UserViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A26AADC1BEC140500281C54 /* SerializationTests.swift in Sources */,
 				3A084BB81BEBFE7200BF244C /* Counter_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +498,7 @@
 		};
 		3A084BC01BEBFE7200BF244C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F02558276A4551C1EAD19FA /* Pods-Counter-iOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Counter-iOSTests/Info.plist";
@@ -446,6 +511,7 @@
 		};
 		3A084BC11BEBFE7200BF244C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93F24F4E27C102F7D3BFF90A /* Pods-Counter-iOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Counter-iOSTests/Info.plist";

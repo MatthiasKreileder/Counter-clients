@@ -9,7 +9,8 @@
 import Foundation
 
 struct Model {
-    let users: [User]
+    var clock: Int
+    var users: [User]
     let categories: [Category]
 }
 
@@ -21,10 +22,10 @@ struct Category {
 struct User {
     let id: String
     let name: String
-    let avatarUrl: String
-    let scores: Scores
+    let avatarUrl: String?
+    var scores: Scores
 }
 
 struct Scores {
-    let dict: [String: Int]
+    var dict: [String: Int]
 }
