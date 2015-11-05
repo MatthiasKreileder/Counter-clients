@@ -13,6 +13,9 @@
 		3A084BAA1BEBFE7100BF244C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A084BA91BEBFE7100BF244C /* Assets.xcassets */; };
 		3A084BAD1BEBFE7100BF244C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A084BAB1BEBFE7100BF244C /* LaunchScreen.storyboard */; };
 		3A084BB81BEBFE7200BF244C /* Counter_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A084BB71BEBFE7200BF244C /* Counter_iOSTests.swift */; };
+		3A26AAD61BEC040200281C54 /* ModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26AAD51BEC040200281C54 /* ModelHandler.swift */; };
+		3A26AAD81BEC043400281C54 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26AAD71BEC043400281C54 /* Model.swift */; };
+		3AE3F7C11BEC01A7000BE6DC /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3F7C01BEC01A7000BE6DC /* UserViewCell.swift */; };
 		E4786EBBFB2F34553C71D494 /* Pods_Counter_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D5670F27F5B5831C68FA0A /* Pods_Counter_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,9 @@
 		3A084BB31BEBFE7200BF244C /* Counter-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Counter-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A084BB71BEBFE7200BF244C /* Counter_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter_iOSTests.swift; sourceTree = "<group>"; };
 		3A084BB91BEBFE7200BF244C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A26AAD51BEC040200281C54 /* ModelHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelHandler.swift; sourceTree = "<group>"; };
+		3A26AAD71BEC043400281C54 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3AE3F7C01BEC01A7000BE6DC /* UserViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		4A5B4AD5D433C8C31779D7B4 /* Pods-Counter-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Counter-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Counter-iOS/Pods-Counter-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BD227F47D7D6009B845A5F3A /* Pods-Counter-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Counter-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Counter-iOS/Pods-Counter-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,10 +109,13 @@
 			children = (
 				3A084BA21BEBFE7100BF244C /* AppDelegate.swift */,
 				3A084BA41BEBFE7100BF244C /* ViewController.swift */,
+				3AE3F7C01BEC01A7000BE6DC /* UserViewCell.swift */,
+				3A26AAD51BEC040200281C54 /* ModelHandler.swift */,
 				3A084BA61BEBFE7100BF244C /* Main.storyboard */,
 				3A084BA91BEBFE7100BF244C /* Assets.xcassets */,
 				3A084BAB1BEBFE7100BF244C /* LaunchScreen.storyboard */,
 				3A084BAE1BEBFE7100BF244C /* Info.plist */,
+				3A26AAD71BEC043400281C54 /* Model.swift */,
 			);
 			path = "Counter-iOS";
 			sourceTree = "<group>";
@@ -272,8 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A26AAD81BEC043400281C54 /* Model.swift in Sources */,
+				3A26AAD61BEC040200281C54 /* ModelHandler.swift in Sources */,
 				3A084BA51BEBFE7100BF244C /* ViewController.swift in Sources */,
 				3A084BA31BEBFE7100BF244C /* AppDelegate.swift in Sources */,
+				3AE3F7C11BEC01A7000BE6DC /* UserViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
