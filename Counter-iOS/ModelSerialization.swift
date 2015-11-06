@@ -20,12 +20,15 @@ extension Category: JSONFriendly {
         let parsed = JSON(json)
         self.id = parsed["id"].stringValue
         self.name = parsed["name"].stringValue
+        self.iconUrl = parsed["iconUrl"].string
+        self.icon = nil
     }
     
     func jsonify() -> NSDictionary {
         var json = JSON([:])
         json["id"].stringValue = self.id
         json["name"].stringValue = self.name
+        json["iconUrl"].string = self.iconUrl
         return json.dictionaryObject!
     }
 }

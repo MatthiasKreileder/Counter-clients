@@ -20,10 +20,16 @@ class ModelHandler {
         self.net = net
     }
     
-    func refresh() {
-        self.net.get().startWithNext { [weak self] model in
-            self?.model.value = model
-            print("Updated model to \(model)")
-        }
+    func refresh(completion: (() -> ())?) {
+        self.net.get().start(Event.sink(error: { (error) -> () in
+            print("Error \(error)")
+            }, completed: { () -> () in
+                completion?()
+            }, next: { [weak self] model in
+                self?.model.value = model
+                print("Updated model to \(model)")
+            }
+            )
+        )
     }
 }

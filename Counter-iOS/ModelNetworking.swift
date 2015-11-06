@@ -87,20 +87,30 @@ class ModelNetworking {
     
     private func cacheImages(model: Model, sink: Event<Model, NSError> -> ()) {
         
-        let toDownload = model
+        let avatarsToDownload = model
             .users
             .filter { $0.avatarUrl != nil }
             .filter { self.imageCache.objectForKey($0.id) == nil }
+            .map { ($0.id, $0.avatarUrl!) }
+        let iconsToDownload = model
+            .categories
+            .filter { $0.iconUrl != nil }
+            .filter { self.imageCache.objectForKey($0.id) == nil }
+            .map { ($0.id, $0.iconUrl!) }
+        let toDownload = avatarsToDownload + iconsToDownload
+        
         if toDownload.count == 0 {
+            let updatedModel = self.updateImagesFromCache(model)
+            sendNext(sink, updatedModel)
             sendCompleted(sink)
             return
         }
         
         let group = dispatch_group_create()
-        toDownload.forEach { user in
+        toDownload.forEach { task in
             dispatch_group_enter(group)
             Alamofire
-                .request(.GET, user.avatarUrl!)
+                .request(.GET, task.1)
                 .responseData({ (response) -> Void in
                     let result = response.result
                     if case let .Failure(error) = result {
@@ -108,7 +118,7 @@ class ModelNetworking {
                     } else if case let .Success(value) = result {
                         //parse image
                         if let image = UIImage(data: value) {
-                            self.imageCache.setObject(image, forKey: user.id)
+                            self.imageCache.setObject(image, forKey: task.0)
                         }
                     }
                     dispatch_group_leave(group)
@@ -117,17 +127,38 @@ class ModelNetworking {
         
         dispatch_group_notify(group, dispatch_get_main_queue()) { () -> Void in
             
-            var updatedModel = model
-            updatedModel.users = model.users.map { (user) -> User in
-                var upUser = user
-                if user.avatarUrl != nil {
-                    upUser.avatar = self.imageCache.objectForKey(user.id) as? UIImage
-                }
-                return upUser
-            }
-
+            let updatedModel = self.updateImagesFromCache(model)
             sendNext(sink, updatedModel)
             sendCompleted(sink)
         }
+    }
+    
+    private func updateImagesFromCache(model: Model) -> Model {
+        
+        var updatedModel = model
+        
+        //user avatars
+        updatedModel.users = model.users.map { (user) -> User in
+            var upUser = user
+            if let image = self.imageCache.objectForKey(user.id) as? UIImage {
+                upUser.avatar = image
+            } else {
+                upUser.avatar = UIImage(named: "no_avatar")
+            }
+            return upUser
+        }
+        
+        //category icons
+        updatedModel.categories = model.categories.map { (category) -> Category in
+            var upCat = category
+            if let icon = self.imageCache.objectForKey(category.id) as? UIImage {
+                upCat.icon = icon
+            } else {
+                upCat.icon = UIImage(named: "no_icon")
+            }
+            return upCat
+        }
+        
+        return updatedModel
     }
 }

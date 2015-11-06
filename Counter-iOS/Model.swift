@@ -11,12 +11,16 @@ import UIKit
 struct Model {
     var clock: Int
     var users: [User]
-    let categories: [Category]
+    var categories: [Category]
 }
 
 struct Category {
     let id: String
     let name: String
+    let iconUrl: String?
+    
+    //supplied by a local cache
+    var icon: UIImage?
 }
 
 struct User {

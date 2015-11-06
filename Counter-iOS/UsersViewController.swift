@@ -27,12 +27,24 @@ class UsersViewController: UICollectionViewController {
         }
         
         //TODO: add a connection indicator
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.whiteColor()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView?.addSubview(refreshControl)
+    }
+    
+    func refresh(refreshControl: UIRefreshControl) {
+        
+        self.modelHandler.refresh {
+            refreshControl.endRefreshing()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.modelHandler.refresh()
+        self.modelHandler.refresh(nil)
     }
     
     //data source
@@ -47,9 +59,7 @@ class UsersViewController: UICollectionViewController {
         let model = self.model.value!
         let user = model.users[indexPath.item]
         
-        cell.nameLabel.text = user.name
-        cell.imageView.image = user.avatar
-        
+        cell.configureForUser(user, categories: model.categories)
         return cell
     }
 }
