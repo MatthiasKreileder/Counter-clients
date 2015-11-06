@@ -11,3 +11,8 @@ target 'Counter-iOSTests' do
 	pod 'Nimble', '~> 3.0.0'
 end
 
+plugin 'cocoapods-keys', {
+  :project => "Counter-iOS",
+  :keys => [
+    "BaseURL"
+  ]}

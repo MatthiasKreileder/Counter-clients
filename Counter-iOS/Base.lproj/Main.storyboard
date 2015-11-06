@@ -9,7 +9,7 @@
         <!--Counter-->
         <scene sceneID="iUa-Gt-enR">
             <objects>
-                <collectionViewController id="ZEn-FF-YFP" sceneMemberID="viewController">
+                <collectionViewController id="ZEn-FF-YFP" customClass="UsersViewController" customModule="Counter_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Jdy-ss-Wfg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,6 +32,41 @@
                                             <rect key="frame" x="8" y="8" width="134" height="134"/>
                                             <animations/>
                                         </imageView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y56-BK-CeV">
+                                            <rect key="frame" x="8" y="92" width="134" height="50"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LjZ-Yx-Bah">
+                                                <rect key="frame" x="0.0" y="0.0" width="134" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRD-HJ-1L4">
+                                                        <rect key="frame" x="46" y="14.5" width="42" height="20.5"/>
+                                                        <animations/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="hRD-HJ-1L4" firstAttribute="centerY" secondItem="LjZ-Yx-Bah" secondAttribute="centerY" id="EVs-jx-cTS"/>
+                                                    <constraint firstItem="hRD-HJ-1L4" firstAttribute="centerX" secondItem="LjZ-Yx-Bah" secondAttribute="centerX" id="MIx-qy-WAg"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hRD-HJ-1L4" secondAttribute="trailing" constant="10" id="g1N-XK-TMy"/>
+                                                    <constraint firstItem="hRD-HJ-1L4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LjZ-Yx-Bah" secondAttribute="leading" constant="10" id="lAZ-Z7-5Gf"/>
+                                                </constraints>
+                                            </view>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="O2X-qZ-cB7"/>
+                                                <constraint firstAttribute="height" constant="128" id="fm9-3p-IbQ"/>
+                                            </constraints>
+                                            <blurEffect style="light"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="fm9-3p-IbQ"/>
+                                                </mask>
+                                            </variation>
+                                        </visualEffectView>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -41,11 +76,15 @@
                                 <constraints>
                                     <constraint firstItem="idp-uG-vmH" firstAttribute="top" secondItem="SJL-Zs-TCZ" secondAttribute="topMargin" id="2kv-cm-WI5"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="idp-uG-vmH" secondAttribute="bottom" id="6xD-m3-Mba"/>
+                                    <constraint firstItem="Y56-BK-CeV" firstAttribute="leading" secondItem="SJL-Zs-TCZ" secondAttribute="leadingMargin" id="BUJ-8o-2hG"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="idp-uG-vmH" secondAttribute="trailing" id="Ccu-jh-vEz"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Y56-BK-CeV" secondAttribute="bottom" id="JPz-u8-chl"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Y56-BK-CeV" secondAttribute="trailing" id="b5N-oK-siC"/>
                                     <constraint firstItem="idp-uG-vmH" firstAttribute="leading" secondItem="SJL-Zs-TCZ" secondAttribute="leadingMargin" id="lzx-6P-ziy"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="idp-uG-vmH" id="zyy-GN-cbe"/>
+                                    <outlet property="nameLabel" destination="hRD-HJ-1L4" id="yKN-5b-rV1"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

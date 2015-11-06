@@ -10,8 +10,7 @@ import UIKit
 
 class UserViewCell: UICollectionViewCell {
     
-     @IBOutlet var imageView: UIImageView!
-    
-    
-    
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+
 }
