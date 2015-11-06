@@ -49,6 +49,7 @@ extension User: JSONFriendly {
         self.name = parsed["name"].stringValue
         self.avatarUrl = parsed["avatarUrl"].string
         self.scores = try Scores(json: parsed["scores"].dictionaryObject!)
+        self.avatar = nil
     }
     
     func jsonify() -> NSDictionary {

@@ -6,7 +6,7 @@
 //  Copyright © 2015 Honza Dvorsky. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Model {
     var clock: Int
@@ -24,6 +24,9 @@ struct User {
     let name: String
     let avatarUrl: String?
     var scores: Scores
+    
+    //supplied by a local cache
+    var avatar: UIImage?
 }
 
 struct Scores {

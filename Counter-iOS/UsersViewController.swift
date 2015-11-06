@@ -21,6 +21,11 @@ class UsersViewController: UICollectionViewController {
         let net = ModelNetworkingFactory.create()
         self.modelHandler = ModelHandler(net: net)
         
+        self.model <~ self.modelHandler.model
+        self.model.producer.startWithNext { [weak self] _ in
+            self?.collectionView?.reloadData()
+        }
+        
         //TODO: add a connection indicator
     }
     
@@ -42,7 +47,8 @@ class UsersViewController: UICollectionViewController {
         let model = self.model.value!
         let user = model.users[indexPath.item]
         
-        
+        cell.nameLabel.text = user.name
+        cell.imageView.image = user.avatar
         
         return cell
     }
