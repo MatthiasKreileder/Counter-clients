@@ -43,7 +43,7 @@ class ModelHandler {
         let updatedModel = update(model)
         self.model.value = updatedModel
         
-        self.attemptPost(model, retry: false)
+        self.attemptPost(updatedModel, retry: false)
     }
     
     func attemptPost(model: Model, retry: Bool) {
