@@ -63,11 +63,13 @@ class ModelNetworking {
         urlComps.queryItems = [NSURLQueryItem(name: "clock", value: "\(model.clock)")]
         let url = urlComps.string!
         
+        let body = model.jsonify() as! [String : AnyObject]
+        
         return SignalProducer {
             sink, disposable in
             
             Alamofire
-                .request(.GET, url)
+                .request(.POST, url, parameters: body, encoding: .JSON)
                 .responseJSON {
                     (response) -> Void in
                     
@@ -75,6 +77,15 @@ class ModelNetworking {
                         sendError(sink, error)
                     } else if case let .Success(value) = response.result {
                         let dict = value as! NSDictionary
+                        
+                        if let errorCode = dict["code"] as? Int {
+                            let errorDescription = dict["description"] as! String
+                            sendError(sink, NSError(domain: "counter-ios", code: errorCode, userInfo: [
+                                NSLocalizedDescriptionKey: errorDescription
+                                ]))
+                            return
+                        }
+                        
                         let newClock = dict["newClock"] as! Int
                         var updatedModel = model
                         updatedModel.clock = newClock

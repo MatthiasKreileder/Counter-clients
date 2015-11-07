@@ -18,6 +18,10 @@ class ModelHandler {
     
     init(net: ModelNetworking) {
         self.net = net
+        
+        self.model.producer.startWithNext {
+            print("Updated model to \($0?.clock ?? 0)")
+        }
     }
     
     func refresh(completion: (() -> ())?) {
@@ -26,10 +30,51 @@ class ModelHandler {
             }, completed: { () -> () in
                 completion?()
             }, next: { [weak self] model in
-                self?.model.value = model
-                print("Updated model to \(model)")
-            }
-            )
+                var newModel = self?.model.value ?? Model()
+                newModel.merge(model)
+                self?.model.value = newModel
+            })
+        )
+    }
+    
+    func performUpdate(update: Model -> Model) {
+        
+        let model = self.model.value ?? Model()
+        let updatedModel = update(model)
+        self.model.value = updatedModel
+        
+        self.attemptPost(model, retry: false)
+    }
+    
+    func attemptPost(model: Model, retry: Bool) {
+        
+        //try to post
+        self.net
+            .post(model)
+            .start(Event.sink(error:
+                { [weak self] (error) -> () in
+                    print(error)
+                    
+                    //handle known errors
+                    switch error.code {
+                    case 1000:
+                        
+                        if !retry {
+                            //clock mismatch, get, merge and try again
+                            self?.refresh({ () -> () in
+                                var newModel = self?.model.value ?? Model()
+                                newModel.merge(model)
+                                self?.model.value = newModel
+                                self?.attemptPost(newModel, retry: true)
+                            })
+                        }
+                        
+                    default: break
+                    }
+                    
+                }, next: { [weak self] model in
+                    self?.model.value = model
+                })
         )
     }
 }
